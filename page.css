@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --primary: #E22A7F;
+    --white: #FFFFFF;
+
+    --colorLightWhite: rgba(255, 255, 255, 0.4);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    color: var(--white);
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+}
+
+#control {
+    height: 87vh;
+    display: flex;
+    background: var(--white);
+    border-radius: 0 0 25px 25px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+#control .controls {
+    width: 20%;
+    height: 100%;
+    border-radius: 0 0 0 25px;
+    position: relative;
+    overflow: hidden;
+    background: red;
+}
+#control .controls div {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#control .controls .top {
+    z-index: 10;
+    border-radius: 0 0 0 25px;
+    backdrop-filter: blur(200px);
+    -webkit-backdrop-filter: blur(200px);
+}
+#control .controls .background {
+    background: linear-gradient(#FFF, #DDD);
+}
+
+#control .songs {
+    width: 80%;
+}
+
+#control .songs .topics .topic h3 {
+    color: var(--white);
+    font-size: 56px;
+    text-transform: uppercase;
+}
+#control .songs .topics .topic h5 {
+    font-size: 34px;
+    font-weight: 200;
+    color: var(--colorLightWhite);
+}
+#control .songs .topics {
+    display: flex;
+    gap: 20px;
+    padding: 40px 80px;
+    overflow: scroll;
+}
+
+#control .songs .topics .topic {
+    min-width: 800px;
+    height: 400px;
+    padding: 40px;
+    border-radius: 30px;
+    transition: 0.2s ease-in-out;
+}
+#control .songs .topics .topic:nth-child(1) {
+    background: linear-gradient(#EF427C, #B41C8B);
+}
+#control .songs .topics .topic:nth-child(1):hover {
+    box-shadow: 1px 1px 20px #EF427C;
+}
+#control .songs .topics .topic:nth-child(2) {
+    background: linear-gradient(#1ECBF4, #194DC3);
+}
+#control .songs .topics .topic:nth-child(2):hover {
+    box-shadow: 1px 1px 20px #1ECBF4;
+    transition: 0.2s ease-in-out;
+}
+
+#controls {
+    padding: 5px 20px;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+}
+
+#controls .img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: #2D2D2D;
+    border-radius: 2px solid red, 2px solid blue;
+    position: relative;
+}
+#controls .img:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 100%;
+    border: 2px solid var(--primary);
+}
+#controls .img:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100%;
+    border: 2px solid #a1a1a1;
+}
+
+#controls .title {
+    margin-left: 10px;
+}
+#controls .title h1 {
+    color: var(--white);
+    font-size: 20px;
+}
+#controls .title h5 {
+    color: var(--colorLightWhite);
+    font-weight: 400;
+}
+
+#controls .add {
+    margin-left: 10px;
+    height: 45px;
+}
+#controls .add .icon {
+    width: 15px;
+    height: 15px;
+}
+
+#controls .controls {
+    margin-left: 70px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#controls .controls .icon {
+    width: 35px;
+    height: 35px;
+}
+#controls .controls .icon.play {
+    width: 40px;
+    height: 40px;
+}
+
+#controls .range {
+    display: flex;
+    gap: 10px;
+    font-weight: 200;
+    margin-left: 20px;
+}
+#controls .range input[type=range] {
+    width: 400px;
+}
+input[type=range]{
+    -webkit-appearance: none;
+    background: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: var(--colorLightWhite);
+    border: none;
+    border-radius: 5px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 5px solid var(--white);
+    margin-top: -5px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+#controls .range input[type=range]::-ms-track {
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+#controls .range input[type=range], #controls .range input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+#controls .range input[type=range], #controls .range input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+#controls .range input[type=range], #controls .range input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+}
+#controls .range input[type=range]:focus, #controls .range input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+#controls .range input[type=range]:focus, #controls .range input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+/* ICONS */
+i.icon {
+    display: block;
+    background-size: cover;
+    background-repeat: none;
+}
+i.icon.add {
+    background-image: url(add.svg);
+}
+i.icon.back {
+    background-image: url(back.svg);
+}
+i.icon.play {
+    background-image: url(play.svg);
+}
+i.icon.forward {
+    background-image: url(forward.svg);
+}
+i.icon.repeat {
+    background-image: url(repeat.svg);
+}
+i.icon.shuffle {
+    background-image: url(shuffle.svg);
+}
